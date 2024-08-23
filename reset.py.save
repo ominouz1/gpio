@@ -1,0 +1,23 @@
+from subprocess import call
+
+def print_thing():
+	print('button pressed')
+
+
+button.when_pressed = print_thing
+
+from gpiozero import Button
+from subprocess import call
+
+def reboot_system():
+    print("Rebooting the system...")
+    call(['sudo', 'reboot'])
+
+# Replace 17 with the GPIO pin number you're using
+button = Button(17)
+
+# Set up the callback function to reboot the system when the button is pressed
+button.when_pressed = reboot_system
+
+# Keep the script running to listen for button presses
+button.wait_for_press(
